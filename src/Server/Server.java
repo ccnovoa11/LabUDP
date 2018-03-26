@@ -36,7 +36,7 @@ public class Server {
 
         try{
             DatagramSocket datagramSocket = new DatagramSocket(port);
-            datagramSocket.setSendBufferSize(128000);
+            datagramSocket.setSendBufferSize(65000);
             byte[] buffer = new byte[200];
             DatagramPacket datagramReceived = new DatagramPacket(buffer, buffer.length);
             int n=0;
@@ -44,7 +44,7 @@ public class Server {
             CompletableFuture.runAsync(()->{
                while(true){
                    try {
-                       Thread.sleep(11000);
+                       Thread.sleep(500);
                        writeRecords();
                    } catch (Exception e) {
                        e.printStackTrace();

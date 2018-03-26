@@ -23,13 +23,13 @@ public class Interface extends JFrame implements ActionListener{
 
     public static final int weidht = 250;
     public static final int height = 300;
-    public static final int rowsNumber = 10;
+    public static final int rowsNumber = 5;
 
     private Client client;
 
     public Interface(){
 
-    setTitle("Enter all Information");
+    setTitle("Informacion requerida");
     setSize(weidht,height);
     setVisible(true);
     setLocationRelativeTo(null);
@@ -39,16 +39,16 @@ public class Interface extends JFrame implements ActionListener{
     JPanel panel1 = new JPanel();
     panel1.setPreferredSize(new Dimension(weidht, height/rowsNumber));
     panel1.setLayout(new GridLayout(1,1));
-    ServerIP=new JLabel("Ip Server:", SwingConstants.CENTER);
+    ServerIP=new JLabel("IP del servidor:", SwingConstants.CENTER);
     panel1.add(ServerIP);
-    ServerIPField= new JTextField("localhost",SwingConstants.HORIZONTAL);
+    ServerIPField= new JTextField("---------",SwingConstants.HORIZONTAL);
     panel1.add(ServerIPField);
     add(panel1);
 
     JPanel panel2 = new JPanel();
     panel2.setPreferredSize(new Dimension(weidht, height/rowsNumber));
     panel2.setLayout(new GridLayout(1,2));
-    ServerPort=new JLabel("Server Port:", SwingConstants.CENTER);
+    ServerPort=new JLabel("Puerto del servidor:", SwingConstants.CENTER);
     panel2.add(ServerPort);
     ServerPortField= new JTextField("65000",SwingConstants.HORIZONTAL);
     panel2.add(ServerPortField);
@@ -57,7 +57,7 @@ public class Interface extends JFrame implements ActionListener{
     JPanel panel3 = new JPanel();
     panel3.setPreferredSize(new Dimension(weidht, height/rowsNumber));
     panel3.setLayout(new GridLayout(1,3));
-    BufferSize=new JLabel("Buffer Size:", SwingConstants.CENTER);
+    BufferSize=new JLabel("Tamaño del buffer:", SwingConstants.CENTER);
     panel3.add(BufferSize);
     BufferSizeField= new JTextField("1000",SwingConstants.HORIZONTAL);
     panel3.add(BufferSizeField);
@@ -66,7 +66,7 @@ public class Interface extends JFrame implements ActionListener{
     JPanel panel4 = new JPanel();
     panel4.setPreferredSize(new Dimension(weidht, height/rowsNumber));
     panel4.setLayout(new GridLayout(1,4));
-    ObjectsNumber=new JLabel("Objects Number:", SwingConstants.CENTER);
+    ObjectsNumber=new JLabel("Objetos a enviar:", SwingConstants.CENTER);
     panel4.add(ObjectsNumber);
     ObjectsNumberField= new JTextField("10000",SwingConstants.HORIZONTAL);
     panel4.add(ObjectsNumberField);
@@ -77,7 +77,7 @@ public class Interface extends JFrame implements ActionListener{
     panel6.setLayout(new GridLayout(1,6));
     add(panel6);
 
-    accept = new JButton("Enter");
+    accept = new JButton("Aceptar");
     accept.setActionCommand("c1");
     accept.addActionListener(this);
     add(accept);

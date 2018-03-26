@@ -62,8 +62,11 @@ public class Client {
 					pw.close();
 
 					System.out.println("Archivo recibido. Closing Socket...");
-					socket.close();
+					int buffer = socket.getSoTimeout();
+					socket.close();					
 					System.out.println("Socket close.");
+					System.out.println(buffer);
+					
 
 				} catch (Exception ioe) {
 					System.out.println("File Error\n");

@@ -21,7 +21,7 @@ public class Server {
 			{
 				System.out.println("\nEscuchando peticiones...\n");
 
-				inBuf = new byte[100000000];
+				inBuf = new byte[65000];
 				inPacket = new DatagramPacket(inBuf, inBuf.length);
 				socket.receive(inPacket);
 
@@ -30,7 +30,7 @@ public class Server {
 				msg = new String(inPacket.getData(), 0, inPacket.getLength());
 				System.out.println("CLient: " + source_address + ":" + source_port);
 
-				String dirname  = "C:\\Users\\Novoa Avellaneda\\Desktop\\Data";
+				String dirname  = "C:\\Users\\Novoa Avellaneda\\Desktop\\datas";
 				File f1 = new File(dirname);
 				File fl[] = f1.listFiles();
 
@@ -53,7 +53,7 @@ public class Server {
 				outPacket = new DatagramPacket(outBuf, 0, outBuf.length, source_address, source_port);
 				socket.send(outPacket);
 
-				inBuf = new byte[100000000];
+				inBuf = new byte[65000];
 				inPacket = new DatagramPacket(inBuf, inBuf.length);
 				socket.receive(inPacket);
 				String filename = new String(inPacket.getData(), 0, inPacket.getLength());
@@ -97,10 +97,13 @@ public class Server {
 							sb.append(s);
 						}
 
-						if(brf.readLine()==null)
+						if(brf.readLine()==null) {
 							System.out.println("Entrega exitosa, CLosing Socket");
+							int buffer = socket.getSoTimeout();	
+							System.out.println(buffer);
+						}
 
-						outBuf=new byte[58000000];
+						outBuf=new byte[65000];
 						outBuf = (sb.toString()).getBytes();
 						outPacket = new DatagramPacket(outBuf, 0, outBuf.length,source_address, source_port);
 						socket.send(outPacket);
